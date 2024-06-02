@@ -60,18 +60,16 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="about py-28" id="about">
+      <section className="about px-28 py-28" id="about">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            <div>
-              <div>
-                <img src="svg/me.svg" alt="about-img" />
-              </div>
+            <div className="flex justify-center items-center h-full">
+              <img src="svg/me.svg" alt="about-img" />
             </div>
             <div className="col-lg-7 lg:pl-10">
-              <h3>Hello! I'm Ari Wibowo</h3>
-              <p>
-                I graduated with a Diploma III in Application Software
+              <h3 className="font-rubik font-bold">Hello! I'm Ari Wibowo</h3>
+              <p className="font-sans">
+                <br />I graduated with a Diploma III in Application Software
                 Engineering from Telkom University, and I'm really into roles
                 like Full-Stack Developer, IT Quality Assurance, and similar
                 positions. I have experience in Website Development (FrontEnd
