@@ -26,7 +26,7 @@ const Navbar = ({ onNavbarFixed }) => {
   };
   return (
     <nav
-      className={`bg-white text-gray-900 font-rubik py-4 px-8 z-50 transition-all duration-700 ${
+      className={`uppercase bg-white text-gray-900 font-rubik py-4 px-8 z-50 transition-all duration-700 ${
         isVisible
           ? "fixed top-0 left-0 right-0 shadow-lg opacity-100"
           : "absolute w-full"

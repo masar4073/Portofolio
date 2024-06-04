@@ -122,7 +122,7 @@ const Home = () => {
       <section className="about px-28 py-28" id="about">
         <RevealOnScroll>
           <div className="container mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20">
               <div className="flex justify-center items-center h-full">
                 <img src="svg/me.svg" alt="about-img" />
               </div>
@@ -154,7 +154,7 @@ const Home = () => {
               Expertise and Skills
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              <div className="col-span-1 lg:col-span-1 h-[200px]">
+              <div className="col-span-1 lg:col-span-1 h-[300px]">
                 <div className="bg-white p-6 rounded-lg shadow-md border border-gray-300 h-full">
                   <h3 className="text-xl font-bold mb-4">
                     Frontend Development
@@ -166,7 +166,7 @@ const Home = () => {
                   </ul>
                 </div>
               </div>
-              <div className="col-span-1 lg:col-span-1 h-[200px]">
+              <div className="col-span-1 lg:col-span-1 h-[300px]">
                 <div className="bg-white p-6 rounded-lg shadow-md border border-gray-300 h-full">
                   <h3 className="text-xl font-bold mb-4">
                     Backend Development
@@ -178,7 +178,7 @@ const Home = () => {
                   </ul>
                 </div>
               </div>
-              <div className="col-span-1 lg:col-span-1 h-[200px]">
+              <div className="col-span-1 lg:col-span-1 h-[300px]">
                 <div className="bg-white p-6 rounded-lg shadow-md border border-gray-300 h-full">
                   <h3 className="text-xl font-bold mb-4">
                     Database Management
@@ -198,21 +198,29 @@ const Home = () => {
 
       <section className="project px-28 py-28" id="project">
         <div className="container mx-auto">
-          <h2 className="uppercase font-rubik font-bold text-3xl lg:text-4xl mb-8">
-            My Projects
-          </h2>
-          <div
-            className={`grid grid-cols-1 lg:grid-cols-${Math.min(
-              projects.length,
-              3
-            )} gap-8 justify-center`}
-          >
-            {projects.map((project, index) => (
-              <div key={index}>
-                <ProjectCard {...project} />
-              </div>
-            ))}
-          </div>
+          <RevealOnScroll>
+            <h2 className="uppercase flex justify-center font-rubik font-bold text-3xl lg:text-4xl mb-20">
+              My Projects
+            </h2>
+          </RevealOnScroll>
+
+          <RevealOnScroll>
+            <div
+              className={`grid grid-cols-1 lg:grid-cols-${Math.min(
+                projects.length,
+                3
+              )} gap-8 justify-center`}
+            >
+              {projects.map((project, index) => (
+                <div
+                  key={index}
+                  className="border-dashed border-4 border-gray-200"
+                >
+                  <ProjectCard {...project} />
+                </div>
+              ))}
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
     </>

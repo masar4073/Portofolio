@@ -16,9 +16,9 @@ const ProjectCard = ({ title, img, about, stacks, website, github }) => {
           alt={title}
         />
         {isHovered && (
-          <div className="absolute inset-0 flex flex-col justify-center items-center bg-gradient-to-t from-gray-500 to-transparent transition-opacity duration-300 ease-in-out">
-            <h4 className="text-white text-lg font-semibold mb-2">{title}</h4>
-            <div className="flex flex-wrap justify-center">
+          <div className="absolute inset-0 flex flex-col justify-end items-center bg-gradient-to-t from-gray-500 to-transparent transition-opacity duration-300 ease-in">
+            <h4 className="text-white text-lg font-semibold mb-5">{title}</h4>
+            <div className="flex flex-wrap justify-center mb-10">
               {stacks.map((stack, index) => (
                 <span
                   key={index}
