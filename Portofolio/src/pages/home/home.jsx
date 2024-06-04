@@ -1,6 +1,65 @@
 import React from "react";
+import { useState, useEffect, useRef } from "react";
 import { TypeAnimation } from "react-type-animation";
 import Navbar from "../../components/navbar";
+import ProjectCard from "../../components/projectCard";
+
+const projects = [
+  {
+    title: "D'Language",
+    img: "img/language.png",
+    about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    stacks: ["ReactJS", "Material UI", ".NetCore"],
+    website: "http://52.237.194.35:2027/",
+    github: "https://github.com/example/project1",
+  },
+  {
+    title: "D'Language",
+    img: "img/language.png",
+    about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    stacks: ["ReactJS", "Material UI", ".NetCore"],
+    website: "http://52.237.194.35:2027/",
+    github: "https://github.com/example/project1",
+  },
+  {
+    title: "D'Language",
+    img: "img/language.png",
+    about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    stacks: ["ReactJS", "Material UI", ".NetCore"],
+    website: "http://52.237.194.35:2027/",
+    github: "https://github.com/example/project1",
+  },
+];
+
+const RevealOnScroll = ({ children }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const onWindScroll = () => {
+      const element = ref.current;
+      if (element) {
+        const { top } = element.getBoundingClientRect();
+        const isVisible = top < window.innerHeight;
+        setIsVisible(isVisible);
+      }
+    };
+
+    window.addEventListener("scroll", onWindScroll);
+    return () => {
+      window.removeEventListener("scroll", onWindScroll);
+    };
+  }, []);
+
+  const classes = `transition-opacity duration-1000
+      ${isVisible ? "opacity-100" : "opacity-0"}`;
+
+  return (
+    <div ref={ref} className={classes}>
+      {children}
+    </div>
+  );
+};
 
 const Home = () => {
   return (
@@ -61,24 +120,98 @@ const Home = () => {
       </section>
 
       <section className="about px-28 py-28" id="about">
+        <RevealOnScroll>
+          <div className="container mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+              <div className="flex justify-center items-center h-full">
+                <img src="svg/me.svg" alt="about-img" />
+              </div>
+              <div className="col-lg-7 lg:pl-10">
+                <h3 className="uppercase font-rubik font-bold text-3xl lg:text-4xl">
+                  Let me introduce myself
+                </h3>
+                <p className="font-rubik text-gray-500">
+                  <br />
+                  Hey there! I'm Ari Wibowo. I finished my studies in
+                  Application Software Engineering at Telkom University, and I
+                  absolutely love working as a Full-Stack Developer or IT
+                  Quality Assurance. I've got hands-on experience in web
+                  development (FrontEnd with ReactJs and Backend with .NetCore),
+                  and I'm also into QA Testing. People say I'm adaptable, a fast
+                  learner, good at communicating, and I enjoy working in teams.
+                  Tech and software development are my true passions!
+                </p>
+              </div>
+            </div>
+          </div>
+        </RevealOnScroll>
+      </section>
+
+      <section className="services px-28 py-28" id="skills">
+        <RevealOnScroll>
+          <div className="container mx-auto">
+            <h2 className="uppercase flex justify-center font-rubik font-bold text-3xl lg:text-4xl mb-8">
+              Expertise and Skills
+            </h2>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="col-span-1 lg:col-span-1 h-[200px]">
+                <div className="bg-white p-6 rounded-lg shadow-md border border-gray-300 h-full">
+                  <h3 className="text-xl font-bold mb-4">
+                    Frontend Development
+                  </h3>
+                  <ul className="list-disc pl-6">
+                    <li>ReactJS</li>
+                    <li>HTML/CSS/JS</li>
+                    <li>Responsive Design</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col-span-1 lg:col-span-1 h-[200px]">
+                <div className="bg-white p-6 rounded-lg shadow-md border border-gray-300 h-full">
+                  <h3 className="text-xl font-bold mb-4">
+                    Backend Development
+                  </h3>
+                  <ul className="list-disc pl-6">
+                    <li>Golang</li>
+                    <li>.NetCore</li>
+                    <li>RESTful APIs</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col-span-1 lg:col-span-1 h-[200px]">
+                <div className="bg-white p-6 rounded-lg shadow-md border border-gray-300 h-full">
+                  <h3 className="text-xl font-bold mb-4">
+                    Database Management
+                  </h3>
+                  <ul className="list-disc pl-6">
+                    <li>MongoDB</li>
+                    <li>MySQL</li>
+                    <li>PostgreSQL</li>
+                    <li>Firebase</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </RevealOnScroll>
+      </section>
+
+      <section className="project px-28 py-28" id="project">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            <div className="flex justify-center items-center h-full">
-              <img src="svg/me.svg" alt="about-img" />
-            </div>
-            <div className="col-lg-7 lg:pl-10">
-              <h3 className="font-rubik font-bold">Hello! I'm Ari Wibowo</h3>
-              <p className="font-sans">
-                <br />I graduated with a Diploma III in Application Software
-                Engineering from Telkom University, and I'm really into roles
-                like Full-Stack Developer, IT Quality Assurance, and similar
-                positions. I have experience in Website Development (FrontEnd
-                using ReactJs and Backend using .NetCore), as well as QA
-                Testing. People know me for being adaptable, a quick learner,
-                good at communicating, and great at collaborating with teams.
-                I'm super passionate about technology and software development!
-              </p>
-            </div>
+          <h2 className="uppercase font-rubik font-bold text-3xl lg:text-4xl mb-8">
+            My Projects
+          </h2>
+          <div
+            className={`grid grid-cols-1 lg:grid-cols-${Math.min(
+              projects.length,
+              3
+            )} gap-8 justify-center`}
+          >
+            {projects.map((project, index) => (
+              <div key={index}>
+                <ProjectCard {...project} />
+              </div>
+            ))}
           </div>
         </div>
       </section>
